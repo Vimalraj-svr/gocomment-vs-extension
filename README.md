@@ -20,12 +20,12 @@ goComment is a Visual Studio Code extension that helps generate comments for cod
 
 1. **Generating Comments**:
    - Select a code snippet.
-   - Right-click to open the context menu.
+   - click 'ctrl + K' to open the command palette.
    - Choose "Generate Comments" to generate comments for the selected snippet.
 
 2. **Viewing Vulnerabilities**:
    - Select a code snippet.
-   - Right-click to open the context menu.
+   - click 'ctrl + K' to open the command palette.
    - Choose "View Vulnerabilities" to identify potential vulnerabilities within the selected snippet.
 
 ## Configuration
@@ -36,13 +36,7 @@ goComment is a Visual Studio Code extension that helps generate comments for cod
 
 Contributions are welcome! If you encounter any bugs or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgements
-
-- This extension was inspired by [insert inspiration here].
+**Thank You!!**
 
 ## Contact
 
