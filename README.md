@@ -40,6 +40,6 @@ Contributions are welcome! If you encounter any bugs or have suggestions for imp
 
 ## Contact
 
-- If you have any questions or feedback, you can reach out to the maintainers:
-  - [Maintainer Name](maintainer@example.com)
+- If you have any questions reach out to:
+  - [Vimalraj S] (vimalrajsvr404@gmail.com)
 
