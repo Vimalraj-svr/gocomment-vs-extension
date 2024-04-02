@@ -1,5 +1,4 @@
 const vscode = require("vscode");
-const axios = require("axios");
 const CommentsTreeDataProvider = require("./CommentsTreeDataProvider");
 
 /**
@@ -62,40 +61,46 @@ function activate(context) {
         vscode.window.showInformationMessage(
           `Generating comments for the snippet!`
         );
-
         try {
           quickPick.hide();
-          const response = await axios.post(
-            "https://gocomment-backend.onrender.com/getcomments",
-            { snippet: selectedText }
-          );
-          quickPick.hide();
-          const responseData = JSON.parse(response.data.response);
-
-          const comments = responseData.comments.replaceAll(". ", ".\n");
-
-          vscode.window.showInformationMessage(
-            "Comments generated successfully!"
-          );
-
+          const response = await fetch("https://gocomment-backend.onrender.com/getcomments", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify({ snippet: selectedText })
+          });
+      
+          if (!response.ok) {
+              throw new Error("Failed to fetch comments");
+          }
+      
+          const resp = await response.json();
+          const respcom = resp.response;
+          const responseData = JSON.parse(respcom);
+          const comments = JSON.stringify(responseData.comments).replaceAll(". ", ".\n");
+      
+          vscode.window.showInformationMessage("Comments generated successfully!");
+      
           const commentText = [comments].join("\n");
           const newComment = generateMultilineComment(
-            language,
-            selectedText,
-            commentText
+              language,
+              selectedText,
+              commentText
           );
-
+      
           editor.edit((editBuilder) => {
-            editBuilder.replace(editor.selection, newComment);
+              editBuilder.replace(editor.selection, newComment);
           });
-        } catch (error) {
+      } catch (error) {
           vscode.window.showErrorMessage(
-            "Error generating comments: " +
+              "Error generating comments: " +
               error.message +
               "\n" +
               "please try again in 1 minute"
           );
-        }
+      }
+      
       }
     }
   );
@@ -124,52 +129,62 @@ function activate(context) {
 
         try {
           quickPick.hide();
-          const response = await axios.post(
-            "https://gocomment-backend.onrender.com/getvulnerabilities",
-            { snippet: selectedText }
-          );
-          const responseData = JSON.parse(response.data.response);
+          const response = await fetch("https://gocomment-backend.onrender.com/getvulnerabilities", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify({ snippet: selectedText })
+          });
+      
+          if (!response.ok) {
+              throw new Error("Failed to fetch vulnerabilities");
+          }
+          const resp = await response.json();
+          const respvul = resp.response;
+          const responseData = JSON.parse(respvul);
           const vulnerabilities = responseData.vulnerabilities;
-
+      
           const panel = vscode.window.createWebviewPanel(
-            "vulnerabilities",
-            "Vulnerabilities",
-            vscode.ViewColumn.Two,
-            {
-              enableScripts: true,
-            }
+              "vulnerabilities",
+              "Vulnerabilities",
+              vscode.ViewColumn.Two,
+              {
+                  enableScripts: true,
+              }
           );
-
+      
           const htmlContent = `
-                    <html>
-                    <head>
-                        <style>
-                            body {
-                                font-family: Arial, sans-serif;
-                                padding: 20px;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <h1>Vulnerabilities</h1>
-                        <ul>
-                            ${vulnerabilities
-                              .map((vuln) => `<li>${vuln}</li>`)
-                              .join("")}
-                        </ul>
-                    </body>
-                    </html>
-                `;
-
+              <html>
+              <head>
+                  <style>
+                      body {
+                          font-family: Arial, sans-serif;
+                          padding: 20px;
+                      }
+                  </style>
+              </head>
+              <body>
+                  <h1>Vulnerabilities</h1>
+                  <ul>
+                      ${vulnerabilities
+                          .map((vuln) => `<li>${vuln}</li>`)
+                          .join("")}
+                  </ul>
+              </body>
+              </html>
+          `;
+      
           panel.webview.html = htmlContent;
-        } catch (error) {
+      } catch (error) {
           vscode.window.showErrorMessage(
-            "Error generating comments: " +
+              "Error generating comments: " +
               error.message +
               "\n" +
               "please try again in 1 minute"
           );
-        }
+      }
+      
       }
     }
   );
