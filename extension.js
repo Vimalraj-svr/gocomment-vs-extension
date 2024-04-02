@@ -10,7 +10,7 @@ function activate(context) {
   let commentsTreeDataProvider = new CommentsTreeDataProvider([]);
   vscode.window.registerTreeDataProvider('commentsTreeView', commentsTreeDataProvider);
   let disposable1 = vscode.commands.registerCommand(
-    "gocomment.showUI",
+    "linewise.showUI",
     function () {
       quickPick = vscode.window.createQuickPick();
       quickPick.placeholder = "Select an action";
@@ -27,9 +27,9 @@ function activate(context) {
         if (selection && selection[0]) {
           const selectedItem = selection[0];
           if (selectedItem.action === "generateComments") {
-            vscode.commands.executeCommand("gocomment.generateComments");
+            vscode.commands.executeCommand("linewise.generateComments");
           } else if (selectedItem.action === "viewVulnerabilities") {
-            vscode.commands.executeCommand("gocomment.viewVuls");
+            vscode.commands.executeCommand("linewise.viewVuls");
           }
         }
       });
@@ -37,7 +37,7 @@ function activate(context) {
   );
 
   let disposable2 = vscode.commands.registerCommand(
-    "gocomment.generateComments",
+    "linewise.generateComments",
     async function () {
       const editor = vscode.window.activeTextEditor;
       const language = getLanguageOfSnippet(editor);
@@ -66,7 +66,7 @@ function activate(context) {
         try {
           quickPick.hide();
           const response = await axios.post(
-            "http://localhost:10000/getcomments",
+            "https://gocomment-backend.onrender.com/getcomments",
             { snippet: selectedText }
           );
           quickPick.hide();
@@ -101,7 +101,7 @@ function activate(context) {
   );
 
   let disposable3 = vscode.commands.registerCommand(
-    "gocomment.viewVuls",
+    "linewise.viewVuls",
     async function () {
       const editor = vscode.window.activeTextEditor;
       if (!editor) {
@@ -125,7 +125,7 @@ function activate(context) {
         try {
           quickPick.hide();
           const response = await axios.post(
-            "http://localhost:10000/getvulnerabilities",
+            "https://gocomment-backend.onrender.com/getvulnerabilities",
             { snippet: selectedText }
           );
           const responseData = JSON.parse(response.data.response);

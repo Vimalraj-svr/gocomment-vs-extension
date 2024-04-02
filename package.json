@@ -1,8 +1,11 @@
 {
-  "name": "gocomment",
-  "displayName": "goComment",
-  "description": "",
+  "name": "linewise",
+  "displayName": "Linewise",
+  "description": "Transform your coding experience with Linewise – your intelligent assistant for seamless code documentation and vulnerability analysis. Say goodbye to tedious comment writing and security concerns. With Linewise, effortlessly generate descriptive comments for your code snippets and detect potential vulnerabilities in seconds. Empower your development workflow with AI-driven insights and streamline your coding process like never before.",
   "version": "0.0.1",
+  "publisher": "vimalrajs0957",
+  "repository": "https://github.com/Vimalraj-svr/linewise-vs-extension",
+  "icon": "media/logo.png",
   "engines": {
     "vscode": "^1.58.0"
   },
@@ -10,7 +13,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:gocomment.showUI",
+    "onCommand:linewise.showUI",
     "*"
   ],
   "main": "./extension.js",
@@ -18,41 +21,41 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "gocomment",
-          "title": "Go Comment",
+          "id": "linewise",
+          "title": "Linewise",
           "icon": "media/logo.svg"
         }
       ]
     },
     "views": {
-      "gocomment": [
+      "linewise": [
         {
           "id": "commentsTreeView",
-          "name": "Comments Tree View"
+          "name": "Usage Instructions"
         }
       ]
     },
     "commands": [
       {
-        "command": "gocomment.generateComments",
+        "command": "linewise.generateComments",
         "title": "Generate Comments"
       },
       {
-        "command": "gocomment.viewVuls",
+        "command": "linewise.viewVuls",
         "title": "View Vulnerabilities"
       },
       {
-        "command": "gocomment.showUI",
+        "command": "linewise.showUI",
         "title": "Show Web view"
       },
       {
-        "command": "gocomment.showTreeView",
+        "command": "linewise.showTreeView",
         "title": "Show Comments Tree View"
       }      
     ],
     "keybindings": [
       {
-        "command": "gocomment.showUI",
+        "command": "linewise.showUI",
         "key": "ctrl+k",
         "mac": "cmd+k",
         "when": "editorTextFocus"
@@ -65,7 +68,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.87.0",
+    "@types/vscode": "^1.58.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
     "eslint": "^8.57.0",
