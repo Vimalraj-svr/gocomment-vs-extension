@@ -1,8 +1,6 @@
-# goComment - Visual Studio Code Extension
+# Linewise - Visual Studio Code Extension
 
-goComment is a Visual Studio Code extension that helps generate comments for code snippets and view vulnerabilities within your code.
-
-![Extension Demo](demo.gif)
+Linewise is a Visual Studio Code extension that helps generate comments for code snippets and view vulnerabilities within your code.
 
 ## Features
 
@@ -13,7 +11,7 @@ goComment is a Visual Studio Code extension that helps generate comments for cod
 
 1. Open Visual Studio Code.
 2. Go to the Extensions view by clicking on the square icon in the sidebar.
-3. Search for "goComment" in the Extensions view search box.
+3. Search for "Linewise" in the Extensions view search box.
 4. Click Install to install the extension.
 
 ## Usage
@@ -42,4 +40,3 @@ Contributions are welcome! If you encounter any bugs or have suggestions for imp
 
 - If you have any questions reach out to:
   - [Vimalraj S] (vimalrajsvr404@gmail.com)
-
