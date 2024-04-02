@@ -13,8 +13,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:linewise.showUI",
-    "*"
+    "onCommand:linewise.showUI"
   ],
   "main": "./extension.js",
   "contributes": {
