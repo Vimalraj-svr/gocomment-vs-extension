@@ -7,6 +7,26 @@ Linewise is a Visual Studio Code extension that helps generate comments for code
 - **Generate Comments**: Automatically generate comments for selected code snippets based on context and best practices.
 - **View Vulnerabilities**: Quickly identify potential vulnerabilities within your code and take necessary actions to mitigate them.
 
+## Supported Languages
+
+Linewise supports generating comments for the following languages:
+- JavaScript
+- TypeScript
+- Python
+- Java
+- C
+- C++
+- C#
+- HTML/XML
+- CSS
+- PHP
+- Ruby
+- Swift
+
+## Demo
+
+![Linewise Demo](./media/demo.gif)
+
 ## Installation
 
 1. Open Visual Studio Code.
@@ -29,25 +49,6 @@ Linewise is a Visual Studio Code extension that helps generate comments for code
 ## Configuration
 
 - You can customize certain aspects of the extension by modifying settings in the Visual Studio Code `settings.json` file.
-
-## Supported Languages
-
-Linewise supports generating comments for the following languages:
-- JavaScript
-- Python
-- Java
-- C
-- C++
-- C#
-- HTML/XML
-- CSS
-- PHP
-- Ruby
-- Swift
-
-## Demo
-
-![Linewise Demo](./media/demo.gif)
 
 ## Contribution
 

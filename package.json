@@ -10,7 +10,7 @@
     "vscode": "^1.58.0"
   },
   "categories": [
-    "Other"
+    "Azure","Education","Formatters","Snippets","Languages","Machine Learning"
   ],
   "activationEvents": [
     "onCommand:linewise.showUI"
