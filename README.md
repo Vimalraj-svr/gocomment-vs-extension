@@ -1,6 +1,6 @@
 # Linewise - Visual Studio Code Extension
 
-Linewise is a Visual Studio Code extension that helps generate comments for code snippets and view vulnerabilities within your code.
+Transform your coding experience with Linewise – your intelligent assistant for seamless code documentation and vulnerability analysis. Say goodbye to tedious comment writing and security concerns. With Linewise, effortlessly generate descriptive comments for your code snippets and detect potential vulnerabilities in seconds. Empower your development workflow with AI-driven insights and streamline your coding process like never before.
 
 ## Features
 
