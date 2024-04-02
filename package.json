@@ -2,7 +2,7 @@
   "name": "linewise",
   "displayName": "Linewise",
   "description": "Transform your coding experience with Linewise – your intelligent assistant for seamless code documentation and vulnerability analysis. Say goodbye to tedious comment writing and security concerns. With Linewise, effortlessly generate descriptive comments for your code snippets and detect potential vulnerabilities in seconds. Empower your development workflow with AI-driven insights and streamline your coding process like never before.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "vimalrajs0957",
   "repository": "https://github.com/Vimalraj-svr/linewise-vs-extension",
   "icon": "media/logo.png",
@@ -50,7 +50,7 @@
       {
         "command": "linewise.showTreeView",
         "title": "Show Comments Tree View"
-      }      
+      }
     ],
     "keybindings": [
       {
